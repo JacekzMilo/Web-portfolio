@@ -1,0 +1,353 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<html>
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N966LM2');</script>
+<!-- End Google Tag Manager -->
+    <!-- This is taken from Bootstrap https://getbootstrap.com/docs/4.4/getting-started/introduction/-->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100i,300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet">
+
+    <link href="{% static '/style_timeline.css' %}" rel="stylesheet">
+</head>
+
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N966LM2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Jacek Milo</a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler bg-dark" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse"
+                type="button">
+            <span class="navbar-toggler-icon bg-dark "></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a aria-current="page" class="nav-link focus text-white-150" href="./">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link focus text-white-150" href="./items">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white-150" href="./new">About me</a>
+                </li>
+            </ul>
+
+            <div class="d-md-flex justify-content-end">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://github.com/JacekzMilo">GitHub
+                            <img src="{% static 'images/github.png' %}" alt="..." width="24" height="24"
+                                 class="d-inline-block align-top"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://www.linkedin.com/in/jacekmilo/">Linkedin
+                            <img src="{% static 'images/linkedin.png' %}" alt="..." width="25" height="24"
+                                 class="d-inline-block align-top"></a>
+
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+<!-- cote from https://codepen.io/savalazic/pen/QKwERN/-->
+<section class="title-color" id="index-title">
+    <div class="container title-container">
+        <div class="headline">
+            <div class="additional-margin">
+                <div class=" title-description">
+
+                    <p class="hidden-narrow" style="text-align: right ">I learned all my skills with different courses,
+                        Udacity, Udemy,
+                        StackOverflow.
+                        With each
+                        project I learn something new. Below are some of the steps of my learning journey.</p>
+                    <h2 class="hidden-narrow" style="text-align: right">My learning journey</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<row class="hidden-wide">
+    <div class="headline">
+        <div class=" title-description">
+            <p class="text-center" style="text-align: right ">I learned all my skills with different courses, Udacity,
+                Udemy,
+                StackOverflow.
+                With each
+                project I learn something new. Below are some of the steps of my learning journey.</p>
+            <h2 class="text-center" style="text-align: right">My learning journey</h2>
+
+        </div>
+    </div>
+</row>
+
+<section class="home-content">
+    <div class="container">
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-img"></div>
+                <div class="timeline-content js--fadeInLeft">
+                    <h2></h2><br>
+                    <div class="date">2022</div>
+                    <p>
+                        <a target="_blank" class="about-link"
+                           href="https://partner.cloudskillsboost.google/public_profiles/fdeada29-6bbd-4251-ac70-8147a6e29bc3">Google
+                            Qwiklabs</a>: Badges earned:
+                    <li>Create and Manage Cloud Resource</li>
+                    <li>Set Up and Configure a Cloud Environment in Google Cloud</li>
+                    <li>Perform Foundational Infrastructure Tasks in Google Cloud</li>
+                    <li>Elastic Google Cloud Infrastructure: Scaling and Automation - Locales</li>
+                    <li>Google Cloud Essentials</li>
+                    <li>Essential Google Cloud Infrastructure: Core Services</li>
+                    <li>Essential Google Cloud Infrastructure: Foundation</li>
+                    <li>Google Cloud Fundamentals: Core Infrastructure</li>
+                    </p>
+                    <p>Certificate:
+                        <a target="_blank" class="about-link"
+                           href="https://www.credential.net/222f90b0-af52-47a0-9ec6-0b9c1cc7c2cb#gs.u1uv4t">Google
+                            associate cloud engineer</a>
+                    </p>
+                    <p>Certificate:
+                        <a target="_blank" class="about-link"
+                           href="https://coursera.org/share/bc30c003521b19e77fe9b2216940da7d">Natural Language
+                            Processing with Probabilistic Models</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-img"></div>
+                <div class="timeline-content js--fadeInRight">
+                    <h2></h2>
+                    <div class="date">2021</div>
+                    <p>
+                        <a target="_blank" class="about-link"
+                           href="https://www.pluralsight.com/courses/interpreting-data-descriptive-statistics-python">Pluralsight</a>:
+                        Interpreting data using descriptive statistics with python.
+
+                    </p>
+                    <p>
+                        <a target="_blank" class="about-link"
+                           href="https://www.qwiklabs.com/public_profiles/cefdd2d1-a860-464c-a7d3-f919e32cf5a4">Google
+                            Qwiklabs</a>: Badges earned:
+                    <li>Google Cloud Computing Foundations: Infrastructure in Google Cloud</li>
+                    <li>Google Cloud Computing Foundations: Cloud Computing Fundamentals</li>
+                    <li>Transform and Clean your Data with Dataprep by Trifacta on Google Cloud</li>
+                    </p>
+                </div>
+            </div>
+
+            <!--            <div class="container">-->
+            <div class="timeline-item">
+                <div class="timeline-img"></div>
+                <div class="timeline-content js--fadeInLeft">
+                    <h2></h2><br>
+                    <div class="date">2020</div>
+                    <p>
+                        <a target="_blank" class="about-link"
+                           href="https://www.udacity.com/course/programming-for-data-science-nanodegree&#45;&#45;nd104">Udacity
+                            course</a>: Programming for Data Science with Python. Introduction to data wrangling and
+                        data analysis. Gained skills: Python, SQL, Git Bash.
+                    </p>
+                    <p>
+                        <a target="_blank" class="about-link"
+                           href="https://drive.google.com/drive/folders/1pCMQXyBoAoUd3XI40BuLWBwqvcNp-7dm?usp=sharing">Certificate</a>
+                    </p>
+                </div>
+            </div>
+
+<!--            <div class="timeline-item">-->
+<!--                <div class="timeline-img"></div>-->
+<!--                <div class="timeline-content js&#45;&#45;fadeInLeft">-->
+<!--                    <h2></h2>-->
+<!--                    <div class="date">2022</div>-->
+<!--                    <p>Certificate:-->
+<!--                        <a target="_blank" class="about-link"-->
+<!--                           href="https://www.credential.net/222f90b0-af52-47a0-9ec6-0b9c1cc7c2cb#gs.u1uv4t">Google-->
+<!--                            associate cloud engineer</a>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+            <!--                        <div class="timeline-item">-->
+            <!--                            <div class="timeline-img"></div>-->
+            <!--                            <div class="timeline-content js&#45;&#45;fadeInRight">-->
+            <!--                                <h2></h2>-->
+            <!--                                <div class="date">2021</div>-->
+            <!--                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias-->
+            <!--                                    cupiditate-->
+            <!--                                    saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in-->
+            <!--                                    dolores.-->
+            <!--                                    Alias, ullam.</p>-->
+            <!--                                &lt;!&ndash;                <a class="bnt-more" href="javascript:void(0)">More</a>&ndash;&gt;-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+
+            <!--                    </div>-->
+
+            <!--            </div>-->
+        </div>
+        <div class="container">
+            <div class="row portfolio-row justify-content-center">
+                <div class="col-md-8"></div>
+                <hr style="color:white">
+            </div>
+
+
+            <div class="row portfolio-row justify-content-center">
+                <div class="col-12 p-0 text-center">
+                    <h2 style="color: white"> My skills:</h2>
+                </div>
+            </div>
+            <div class="row row-legend justify-content-center">
+                <div class="col-12 p-0 text-center">
+                    <p style="color: white">
+                        1 - Basic
+                        <span class="about-legend"></span>
+                        2 - Novice
+                        <span class="about-legend"></span>
+                        3 - Intermediate
+                    </p>
+                    <p class="m-0" style="color: white">
+                        4 - Advanced
+                        <span class="about-legend"></span>
+                        5 - Expert
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="row about-row justify-content-center about-header" style="color: white">
+                Hover cursor over the bars for more information
+            </div>
+
+            <div class="row about-row jistify-content-center">
+
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="skill-cat text-center">
+                        <h5 style="color: white">Programming languages</h5>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <p style="color: white">Python - 3</p>
+                            <div class="skill-bar">
+                                <div class="skill-spec" style="width: 65.0%"></div>
+                                <span class="tooltiptext"> 2 years experience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+
+                    <div class="skill-cat text-center">
+                        <h5 style="color: white">Software engineering</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <p style="color: white">Front-end-2</p>
+                            <div class="skill-bar">
+                                <div class="skill-spec" style="width: 40.0%"></div>
+                                <span class="tooltiptext"> HTML, CSS</span>
+                            </div>
+                        </div>
+                        <div class="col-12 text-right">
+                            <p style="color: white">Databases-3</p>
+                            <div class="skill-bar">
+                                <div class="skill-spec" style="width: 60.0%"></div>
+                                <span class="tooltiptext"> MySQL, SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="skill-cat text-center">
+                        <h5 style="color: white">Data analysis</h5>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <p style="color: white">Data wrangling - 3</p>
+                            <div class="skill-bar">
+                                <div class="skill-spec" style="width: 60.0%"></div>
+                                <span class="tooltiptext">  Pandas, Numpy</span>
+                            </div>
+                        </div>
+                        <div class="col-12 text-right">
+                            <p style="color: white">Data visualization - 3</p>
+                            <div class="skill-bar">
+                                <div class="skill-spec" style="width: 60.0%"></div>
+                                <span class="tooltiptext">  Plotly, Matplotlib</span>
+                            </div>
+                        </div>
+                        <div class="col-12 text-right">
+                            <p style="color: white">Statistics - 2</p>
+                            <div class="skill-bar">
+                                <div class="skill-spec" style="width: 35.0%"></div>
+                                <span class="tooltiptext">  Descriptive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="skill-cat text-center">
+                        <h5 style="color: white">Machine learning</h5>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <p style="color: white">Supervised - 1</p>
+                            <div class="skill-bar">
+                                <div class="skill-spec" style="width: 5.0%">
+                                    <span class="tooltiptext">NLP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</section>
+
+
+<div class="footer text-muted">
+    <div class="container-fluid text-center">
+        <p><small>&copy; Copyright 2021</small></p>
+    </div>
+</div>
+
+
+</body>
+
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js'></script>
+
+<script src="{% static '/index_timeline.js' %}" rel="stylesheet"></script>
+
+</html>
+
+{% endblock %}
+
