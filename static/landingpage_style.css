@@ -79,7 +79,7 @@
 {
     background: url("./images/pexels-photo-866351.jpeg") no-repeat center center fixed;
     background-position: top;
-    background-size: 2000px 1000px;
+    background-size: 100% 100%;
     background-color: #181a1b;
 
 }
@@ -537,3 +537,10 @@ footer
  padding: 70px 0px 0px 0px;
 }
 
+.card_img {
+    margin: 5px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    flex: 50%; /* Obraz zajmuje 30% wysokości karty */
+    overflow: hidden; /* Zapobieganie przekraczaniu zawartości obrazu */
+}
