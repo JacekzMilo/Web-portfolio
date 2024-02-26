@@ -64,25 +64,6 @@
     background-color: #FFF;
 }
 
-.title-color
-{
-    padding: 210px 0 80px;
-    position: relative;
-    z-index: 1;
-    display: block;
-    height: 650px;
-    position: relative;
-    bacground: #181a1b;
-}
-
-#index-title
-{
-    background: url("./images/pexels-photo-866351.jpeg") no-repeat center center fixed;
-    background-position: top;
-    background-size: 100% 100%;
-    background-color: #181a1b;
-
-}
 
 #portfolio-title
 {
@@ -94,17 +75,40 @@
     background-color: #33C6B8;
 }
 
+
+#index-title
+{
+    background: url("./images/pexels-photo-866351.jpeg") no-repeat center center fixed;
+    background-position: top;
+    background-size: 100% 100%;
+    background-color: #181a1b;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+
+
+}
+
+
+.headline {
+  letter-spacing: 3px;
+  font-weight: 400;
+  color: white;
+  padding: 70px 0px 0px 0px;
+  position: absolute;
+  bottom: 0;
+}
+
+
 .container
 {
     width:100%;
     position: relative;
-    bottom: -40px;
+
 }
 
-/*This is for debugging purposes to see the size of divs
-*{
-    outline: 1px solid red;
-}*/
 
 .title-text
 {
@@ -116,16 +120,8 @@
 
 .additional-margin
 {
-    padding-left: 90px;
-}
 
-.title-description
-{
-    font-size: 15px;
-    font-weight: normal;
-    padding-top: 120px;
 }
-
 
 
 .index-header
@@ -211,10 +207,34 @@
     box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.3);
 }
 
+.title-color
+{
+    padding: 70px 0 80px;
+    z-index: 1;
+    display: block;
+    height: 650px;
+}
+
+.title-description
+{
+    height: auto;
+    padding-top: 120px;
+    letter-spacing: 3px;
+    font-weight: 400;
+    color: white;
+
+@media (max-width: 480px) {
+  .title-color {
+    padding: 120px 0 60px;
+    height: auto;
+  }
+}
+
 @media (max-width: 576px) {
     .title-color{
         padding: 140px 0 80px;
-        height: 550px;
+        height: auto;
+        background-size: cover
     }
 }
 
@@ -222,6 +242,10 @@
     .title-color
     {
         padding: 150px 0 80px;
+        background-size: cover;
+        height: auto;
+
+
     }
     .portfolio-row
     {
@@ -246,13 +270,27 @@
 }
 
 @media (max-width: 992px) {
+    .title-color
+    {
+        background-size: contain;
+        height: auto;
+
+
+    }
     .additional-margin
     {
-        padding-left: 15px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 }
 
 @media (min-width: 1200px) {
+    .title-color
+    {
+        background-size: contain;
+        height: auto;
+
+    }
     .navbar-collapse
     {
         font-size: 18px;
@@ -529,13 +567,6 @@ footer
 
     }
 
-
-.headline {
-  letter-spacing: 3px;
-  font-weight: 400;
-  color: white;
- padding: 70px 0px 0px 0px;
-}
 
 .card_img {
     margin: 5px;

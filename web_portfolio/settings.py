@@ -96,16 +96,19 @@ WSGI_APPLICATION = 'web_portfolio.wsgi.application'
 # }
 #
 DATABASES = {'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))}
+
+# from decouple import config
 # DATABASES = {
 #     'default': {
-#         'ENGINE': os.getenv('ENGINE'),
-#         'NAME': os.getenv('NAME'),
-#         'USER': os.getenv('USER'),
-#         'PASSWORD': os.getenv('PASSWORD'),
-#         'HOST': os.getenv('HOST'),
-#         'PORT': os.getenv('PORT'),
+#         'ENGINE': config('ENGINE'),
+#         'NAME': config('NAME'),
+#         'USER': config('USER'),
+#         'PASSWORD': config('PASSWORD'),
+#         'HOST': config('HOST'),
+#         'PORT': config('PORT'),
 #     }
 # }
+
 # db_from_env = dj_database_url.config(conn_max_age=600)
 # DATABASES['default'].update(db_from_env)
 

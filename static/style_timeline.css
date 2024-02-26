@@ -605,6 +605,8 @@ a:hover, a:active, a:focus {
     background-position: top;
     background-size: 2000px 1000px;
     bacground: #181a1b;
+    background-position: center;
+    background-size: cover;
 }
 
 .skill-cat
