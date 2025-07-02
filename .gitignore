@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual env
+.env
+.venv/
+
+# Django
+*.sqlite3
+db.sqlite3
+staticfiles/
+media/
+
+# Env files
+.env*
+
+# VSCode / PyCharm
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+
+# Build
+build/
+
+# Node/npm artifacts (just in case)
+node_modules/
+
+# Backup
+*.bak 

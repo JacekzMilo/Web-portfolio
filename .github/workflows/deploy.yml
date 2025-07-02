@@ -1,0 +1,57 @@
+name: WEBPORTFOLIO CI/CD - Test and Deploy to Raspberry Pi / GCP (DEV / PROD)
+
+on:
+  push:
+    branches: [ master_dev ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  deploy-dev:
+    if: github.ref == 'refs/heads/master_dev'
+    runs-on: ubuntu-latest
+    env:
+      PI_PATH: /home/pi/web-portfolio/dev
+    steps:
+      - uses: actions/checkout@v4
+      - uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.RPISSHKEY }}
+      - name: Test SSH connection (DEV)
+        run: |
+          ssh -o StrictHostKeyChecking=no -p ${{ secrets.RPIPORT }} \
+            ${{ secrets.RPIUSER }}@${{ secrets.RPIHOST }} "echo DEV connection OK"
+
+  deploy-prod:
+    if: github.event_name == 'pull_request' && github.base_ref == 'master'
+    runs-on: ubuntu-latest
+    env:
+      PI_PATH: /home/pi/web-portfolio/prod
+    steps:
+      - uses: actions/checkout@v4
+      - uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.RPISSHKEY }}
+      - name: Test SSH connection (PROD)
+        run: |
+          ssh -o StrictHostKeyChecking=no -p ${{ secrets.RPIPORT }} \
+            ${{ secrets.RPIUSER }}@${{ secrets.RPIHOST }} "echo PROD connection OK"
+
+    #   - name: Copy sources to Raspberry Pi (rsync)
+    #     run: |
+    #       rsync -az --delete --exclude '.git' \
+    #         -e "ssh -o StrictHostKeyChecking=no" \
+    #         ./  "${{ secrets.PI_USER }}@${{ secrets.PI_HOST }}:${{ env.PI_PATH }}/"
+
+    #   - name: Build & restart containers on Raspberry Pi
+    #     run: |
+    #       ssh -o StrictHostKeyChecking=no \
+    #         ${{ secrets.PI_USER }}@${{ secrets.PI_HOST }} << 'EOSSH'
+    #           set -e
+    #           cd /home/pi/web-portfolio
+    #           docker compose pull || true
+    #           docker compose down || true
+    #           docker compose up --build -d
+    #           docker image prune -f
+    #       EOSSH 

@@ -1,0 +1,79 @@
+[
+{
+  "model": "landingpage.project",
+  "pk": 1,
+  "fields": {
+    "Project_name": "Investigate a Bikeshare database",
+    "Project_desc": "The program's task was to provide data on users and bicycle rentals in three cities in the USA. Depending on the user's input, different data ranges were given. First, the user chooses the city from which he wants to display results. Then selects the month, day.",
+    "Project_img": "bikeshare_odZvppb.jpg",
+    "Skills": "Python, pandas, numpy, Jupyter Notebook",
+    "Project_no": "6"
+  }
+},
+{
+  "model": "landingpage.project",
+  "pk": 2,
+  "fields": {
+    "Project_name": "Investigate a relational Database",
+    "Project_desc": "The program concerned the sorting of data from movie rentals. It has been divided into four subqueries, each providing an answer for one question. Performed on data provided by Udacity.",
+    "Project_img": "relational_jA51nll.png",
+    "Skills": "SQL",
+    "Project_no": "5"
+  }
+},
+{
+  "model": "landingpage.project",
+  "pk": 3,
+  "fields": {
+    "Project_name": "Covid analysis",
+    "Project_desc": "The aim of this project was to find some valuable insight into data and to try answer to some questions. First time used Jupyter Notebook to perform calculations and present results.",
+    "Project_img": "covid_GT5k8s5.jpg",
+    "Skills": "Python, pyplot, numpy, pandas, seaborn, matplotlib, Jupyter Notebook",
+    "Project_no": "4"
+  }
+},
+{
+  "model": "landingpage.project",
+  "pk": 4,
+  "fields": {
+    "Project_name": "WebPortfolio",
+    "Project_desc": "A website I made from scratch that gathers all my individual work, interests and plans for future projects.",
+    "Project_img": "2021-12-14_17_23_21-Window_LVek1Om.png",
+    "Skills": "Python, HTML, CSS, SCSS",
+    "Project_no": "3"
+  }
+},
+{
+  "model": "landingpage.project",
+  "pk": 5,
+  "fields": {
+    "Project_name": "Semantic analysis of key sentences in cryptocurrency articles",
+    "Project_desc": "The aim of this project was to create a program that will read cryptocurrency related articles and output the report with semantic analysis of sentences containing cryptocurrency names.",
+    "Project_img": "Aspect_base_sentiment_analysis_cgpHw4i.png",
+    "Skills": "Python, NLTK, pandas, numpy, scrapy, Bigquery, Data Studio, textblob, seaborn, re",
+    "Project_no": "2"
+  }
+},
+{
+  "model": "landingpage.project",
+  "pk": 6,
+  "fields": {
+    "Project_name": "Transaction-categorization",
+    "Project_desc": "The goal was to gain insight into spending divided into categories. Final Data Studio dashboard shows data separately for each bank and combined into one plot. The flow is using two python scripts - application (app.py) and Cloud Function code. Cloud Function code is designed to process Bank data stored in a Google Cloud Storage bucket. It reacts to changes in the bucket, triggering the function whenever a file is overwritten. Works on multiple files from various banks. Application script is a user friendly frontend used to extract data from account.",
+    "Project_img": "2024-02-09_11_13_19-Window.png",
+    "Skills": "Cloud Functions, Cloud Storage, Bigquery, Data Studio, Flask, Open Banking",
+    "Project_no": "1"
+  }
+},
+{
+  "model": "landingpage.project",
+  "pk": 7,
+  "fields": {
+    "Project_name": "RDS-to-BQ",
+    "Project_desc": "This project involves migrating data from a MySQL database (Shopware) to BigQuery. The migration process is automated using AWS Lambda, triggered daily by EventBridge.",
+    "Project_img": "Amazon_Lambda_architecture_logo.svg.png",
+    "Skills": "AWS Lambda, Data Bridge, S3, IAM, Bigquery, Data Transfer, Boto3",
+    "Project_no": "0"
+  }
+}
+]

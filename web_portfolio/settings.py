@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-import django_heroku
 # import dotenv
 import dj_database_url
 # dotenv.load_dotenv()
@@ -24,12 +23,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%s=75ckg(%myap66ny!o4=dqp=c*hb&4_mlob2&z%4%-ey2x10'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Odczyt konfiguracji z pliku .env (lub zmiennych systemowych)
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-ALLOWED_HOSTS = [ '0.0.0.0', 'localhost', '127.0.0.1', 'webportfoliomilo.herokuapp.com/landingpage/']
+# DEBUG = 1 (lub True) w .env włącza debug
+DEBUG = os.getenv('DEBUG', '0') in ['1', 'True', 'true']
+
+# ALLOWED_HOSTS w .env, rozdzielone przecinkami; domyślnie localhost/127.0.0.1
+ALLOWED_HOSTS_ENV = os.getenv('ALLOWED_HOSTS')
+ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS_ENV.split(',')] if ALLOWED_HOSTS_ENV else ['localhost', '127.0.0.1']
 
 
 
@@ -88,14 +91,14 @@ WSGI_APPLICATION = 'web_portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-#
 DATABASES = {'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))}
+# Zapewnij poprawny fallback na SQLite, gdy DATABASE_URL nie jest ustawione
+DATABASES = {
+    'default': dj_database_url.config(
+        default=f'sqlite:///{os.path.join(BASE_DIR, "db.sqlite3")}'
+    )
+}
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': os.getenv('ENGINE'),
@@ -177,8 +180,4 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-django_heroku.settings(locals())
-
-# SECRET_KEY = os.environ.get('SECRET_KEY')
-# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+# Usuń wywołanie konfiguracji Heroku – nie jest potrzebne w kontenerach Docker
