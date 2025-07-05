@@ -1,0 +1,8 @@
+"id","Project_name","Project_desc","Project_img"
+1,"Investigate a Bikeshare database","The program's task was to provide data on users and bicycle rentals in three cities in the USA. Depending on the user's input, different data ranges were given. First, the user chooses the city from which he wants to display results. Then selects the month, day. 
+Skills: Python, Jupyter Notebook","bikeshare.jpg"
+2,"Investigate a relational Database","The program concerned the sorting of data from movie rentals. It has been divided into four subqueries, each providing an answer for one question. Skills SQL","relational.png"
+3,"WebPortfolio","A website I made from scratch that gathers all my individual work interests and plans for future projects.
+Skills: Python, HTML, CSS, SCSS, JavaScript","2021-12-14_17_23_21-Window.png"
+4,"Covid analysis","The task of this project was to find some valuable insight into data and to try answer to questions. First time used Jupyter Notebook to present results.
+Skills: Python, Jupyter Notebook","covid_UlfOaa0.jpg"

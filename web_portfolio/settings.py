@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-# import dotenv
+import dotenv
 import dj_database_url
-# dotenv.load_dotenv()
+dotenv.load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -91,35 +91,15 @@ WSGI_APPLICATION = 'web_portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))}
-# Zapewnij poprawny fallback na SQLite, gdy DATABASE_URL nie jest ustawione
 DATABASES = {
-    'default': dj_database_url.config(
-        default=f'sqlite:///{os.path.join(BASE_DIR, "db.sqlite3")}'
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': os.getenv('ENGINE'),
-#         'NAME': os.getenv('NAME'),
-#         'USER': os.getenv('USER'),
-#         'PASSWORD': os.getenv('PASSWORD'),
-#         'HOST': os.getenv('HOST'),
-#         'PORT': os.getenv('PORT'),
-#     }
-# }
-# db_from_env = dj_database_url.config(conn_max_age=600)
-# DATABASES['default'].update(db_from_env)
-
-# if os.environ.get('DATABASE_URL'):
-#     DATABASES['default'] = dj_database_url.config(default=os.environ['DATABASE_URL'])
-#
-# DATABASE_URL = os.environ['DATABASE_URL']
-#
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-#
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# Jeśli kiedyś będziesz chciał użyć PostgreSQL (np. na Heroku),
+# zamień powyższą konfigurację na dj_database_url.config() i ustaw DATABASE_URL.
 
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
                         "django_excel.TemporaryExcelFileUploadHandler")
