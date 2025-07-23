@@ -1,8 +1,6 @@
 # Web Portfolio
 
-![Portfolio banner](assets/og-banner.png)
-
-## �� Table of Contents
+## 📑 Table of Contents
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
 - [Tech Stack](#tech-stack)
@@ -46,7 +44,7 @@ The platform keeps evolving: every new side-project lands here as a dedicated en
 ---
 
 ## Related Projects
-- **[Bank_app](https://github.com/<twoje-konto>/Bank_app)** – personal finance aggregator connected via single-sign-on.
+- **[Bank_app](https://github.com/JacekzMilo/Bank_app)** – personal finance aggregator connected via single-sign-on.
 
 ---
 
