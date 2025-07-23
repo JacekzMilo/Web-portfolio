@@ -1,66 +1,60 @@
 # Web Portfolio
 
-Personal portfolio built with **Django 3.2** showcasing my data-science projects and experiments.  
-The site lists completed work, highlights the *next* upcoming project and provides an admin interface secured with **Two-Factor Authentication** (TOTP).
+![Portfolio banner](assets/og-banner.png)
+
+## �� Table of Contents
+- [Project Overview](#project-overview)
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [Roadmap](#roadmap)
+- [Development Notes](#development-notes)
+- [Project Structure](#project-structure)
+- [CI/CD](#continuous-integration--deployment)
+- [License](#license)
+
+## Project Overview
+This portfolio started more than five years ago as a single place to showcase all the experiments, side-projects and production-grade applications I built while shaping my career in IT. It began as a simple static site hosted on **Vercel**, but I quickly wanted to present more than a few screenshots.
+
+The first milestone was rewriting the site in **Django** and deploying it to **Heroku**, which gave me a database and an admin panel where I could curate projects with ease. When Heroku moved to a paid model I decided to self-host: I bought a **Raspberry Pi 5**, containerised the stack with **Docker** and set up fully automated deployments via **GitHub Actions** (separate *dev* and *prod* environments).
+
+The next natural step was integrating it with my private banking application **Bank_app**. After two-factor authentication I can now view the public portfolio and – in a protected area – analyse my personal expenses pulled from the bank API. The site is served behind **Cloudflare** on a sub-domain, with **Nginx** acting as a reverse proxy and handling TLS certificates.
+
+The platform keeps evolving: every new side-project lands here as a dedicated entry with screenshots and a link to its repository, while the underlying infrastructure is continuously improved to follow industry best practices (CI/CD, monitoring, staging, etc.).
+
+## Key Features
+* Dynamic project directory (model `landingpage.Project`)
+* "Coming soon" teaser section (`landingpage.NextProject`)
+* Drag-and-drop ordering in Django admin (`django-admin-sortable2`)
+* Two-Factor Authentication for staff accounts (`django-two-factor-auth`)
+* Containerised with **Docker** and orchestrated via `docker-compose`
+* Zero-touch deployments through **GitHub Actions** to a Raspberry Pi
+
+## Tech Stack
+* Backend: **Python 3.11**, **Django 3.2**, **Gunicorn**
+* Frontend: **HTML/CSS + Bootstrap**, Django templates (planned migration to **React / Next.js**)
+* Database: **SQLite** locally, **PostgreSQL** optionally in production
+* CI/CD & Ops: **Docker**, **GitHub Actions**, **Nginx**, **Certbot**, **Cloudflare**
+* Libraries: `django-two-factor-auth`, `django-admin-sortable2`
+
+## Roadmap
+* Migrate UI to **Next.js** + **Tailwind CSS**
+* Split services into dedicated microservices (auth, projects, analytics)
+* Add observability: **Prometheus** + **Grafana**
+* Introduce unit & integration tests (pytest)
+* Multi-region hosting with a replicated database
 
 ---
 
-## ✨ Key Features
-* Dynamic list of projects stored in the database (`landingpage.Project`)
-* Sneak-peek section for the next planned project (`landingpage.NextProject`)
-* Drag-and-drop ordering of projects in the Django admin via `django-admin-sortable2`
-* Image uploads & media handling out of the box (`ImageField` + SQLite)
-* Two-Factor Authentication for staff users (`django-two-factor-auth`)
-* Production-ready: **Gunicorn** application server & static files served by **WhiteNoise**
-* Fully containerised with **Docker** and **docker-compose**
-* Automated CI/CD pipeline – GitHub Actions builds & deploys to a Raspberry Pi 5 (DEV & PROD)
+## Related Projects
+- **[Bank_app](https://github.com/<twoje-konto>/Bank_app)** – personal finance aggregator connected via single-sign-on.
 
 ---
 
-## 🚀 Quick Start
-
-### 1. Run with Docker (recommended)
-```bash
-# build & start the stack
-docker compose up --build
-
-# open in your browser
-http://localhost:8000
-```
-This will:
-1. Install all Python dependencies from `requirements.txt`.
-2. Apply database migrations (the SQLite file is persisted on the host).
-3. Launch Gunicorn on port 8000.
-
-### 2. Run locally (without Docker)
-```bash
-python -m venv .venv && source .venv/bin/activate       # Linux/macOS
-# on Windows: py -3 -m venv .venv && .venv\Scripts\activate
-
-pip install -r requirements.txt
-cp web_portfolio/.env.example web_portfolio/.env         # create & edit your secrets
-python manage.py migrate
-python manage.py collectstatic --noinput
-python manage.py runserver
-```
-The site will be available at `http://127.0.0.1:8000`.
+## 📖 Development Notes
+This repository contains the current consolidated version of the portfolio. Earlier iterations (static site, Heroku deployment, first Raspberry Pi setup) are tagged in Git for reference. The architecture remains intentionally straightforward — a Django application served by Gunicorn behind Nginx, all orchestrated with Docker Compose.
 
 ---
 
-## ⚙️ Environment Variables
-Define them in `web_portfolio/.env` or in container environment variables.
-
-| Variable | Example | Description |
-|----------|---------|-------------|
-| `SECRET_KEY` | `django-insecure-CHANGE_ME` | Secret key used by Django to sign cookies |
-| `DEBUG` | `1` | Enable/disable debug mode |
-| `ALLOWED_HOSTS` | `localhost,127.0.0.1` | Comma-separated list of allowed hosts |
-| `HOST_PORT` | `8000` | Host port mapped to the container (docker-compose) |
-| `DB_PATH` | `/absolute/path/db.sqlite3` | Path to SQLite database file persisted outside the container |
-
-If you want to use PostgreSQL (e.g. in production) set a `DATABASE_URL` variable – it will be parsed by `dj-database-url`.
-
----
 
 ## 🗂️ Project Structure
 ```
@@ -92,24 +86,6 @@ Every push to `master_dev` or a merged pull-request to `master` triggers a **Git
 Secrets such as SSH credentials & ports are stored in the repository’s encrypted **Secrets** section.
 
 This provides fully automated, zero-downtime deployments directly to the device acting as a home server.
-
----
-
-## 🛠️ Useful Commands
-```bash
-# create an admin user
-python manage.py createsuperuser
-
-# reload initial project data from JSON
-auth python manage.py loaddata projects.json
-```
-
----
-
-## 📌 Roadmap / TODO
-- [ ] Add unit and integration tests (pytest + django-test-plus)
-- [ ] Fully responsive design (mobile-first)
-- [ ] Serve images from a CDN (e.g. Cloudflare Images or S3)
 
 ---
 
